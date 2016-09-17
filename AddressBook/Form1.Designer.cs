@@ -199,7 +199,7 @@
             // 
             // BtnSearch
             // 
-            this.BtnSearch.Location = new System.Drawing.Point(384, 291);
+            this.BtnSearch.Location = new System.Drawing.Point(314, 163);
             this.BtnSearch.Name = "BtnSearch";
             this.BtnSearch.Size = new System.Drawing.Size(167, 23);
             this.BtnSearch.TabIndex = 18;
@@ -208,7 +208,7 @@
             // 
             // TxtSearch
             // 
-            this.TxtSearch.Location = new System.Drawing.Point(384, 250);
+            this.TxtSearch.Location = new System.Drawing.Point(314, 137);
             this.TxtSearch.Name = "TxtSearch";
             this.TxtSearch.Size = new System.Drawing.Size(167, 20);
             this.TxtSearch.TabIndex = 19;
