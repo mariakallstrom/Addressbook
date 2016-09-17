@@ -8,5 +8,6 @@ namespace AddressBook
 {
     class Contact
     {
+
     }
 }
