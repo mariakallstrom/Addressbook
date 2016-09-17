@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBook
 {
-    class Contact
+    public class Contact
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -19,12 +19,18 @@ namespace AddressBook
 
         public Contact() //Default
         {
-           
+
+            FirstName = "Maria";
+            LastName = "Nilsson";
+            Address = "Lingonstigen 5";
+            City = "Stockholm";
+            Zip = "12345";
+            Phone = "0000000000";
+            Email = "Maria@maria.se";
         }
 
-        public Contact(int id, string firstName, string lastName, string address, string zip, string city, string phone, string email)
+        public Contact(string firstName, string lastName, string address, string zip, string city, string phone, string email)
         {
-            
             FirstName = firstName;
             LastName = lastName;
             Address = address;
@@ -33,5 +39,6 @@ namespace AddressBook
             Phone = phone;
             Email = email;
         }
+
     }
 }

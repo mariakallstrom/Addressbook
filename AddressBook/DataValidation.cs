@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AddressBook
 {
@@ -38,7 +39,7 @@ namespace AddressBook
 
         public bool ControlEmptyTextBoxes()
         {
-            string[] textBoxArray = new string[] { obj.FirstName, obj.LastName, obj.Address, obj.ZipCode, obj.City, obj.Phone, obj.Email };
+            string[] textBoxArray = new string[] { obj.FirstName, obj.LastName, obj.Address, obj.Zip, obj.City, obj.Phone, obj.Email };
             int count = 0;
             bool ok = true;
 
@@ -63,8 +64,8 @@ namespace AddressBook
         public bool ControlZipCode()
         {
             int zip;
-            bool ok = int.TryParse(obj.ZipCode, out zip);
-            if (ok == false || obj.ZipCode.Length < 5 || obj.ZipCode.Length > 5)
+            bool ok = int.TryParse(obj.Zip, out zip);
+            if (ok == false || obj.Zip.Length < 5 || obj.Zip.Length > 5)
             {
                 MessageBox.Show("Felaktigt postnummer");
                 return false;
