@@ -19,9 +19,9 @@ namespace AddressBook
             DataValidation val = new DataValidation();
             Contact obj = new Contact(TxtFirstName.Text.Trim().UpperCaseFirst(), TxtLastName.Text.Trim().UpperCaseFirst(), TxtAddress.Text.Trim().UpperCaseFirst(), TxtZip.Text.Trim(), TxtCity.Text.Trim().UpperCaseFirst(),
             TxtPhone.Text.Trim(), TxtEmail.Text.Trim().LowerString());
-           
             if (val.ControlEmptyTextBoxes(obj) && val.ControlPhone(obj) && val.ControlContactExist(obj) && val.ControlEmail(obj))
             {
+                DeleteContact();
                 data.WriteData(obj);
                 ClearForm();
                 GetDataToListBox();
@@ -35,21 +35,6 @@ namespace AddressBook
         {
             SearchContact();
         }
-        private void BtnChange_Click(object sender, EventArgs e)
-        {
-            if (TxtEmail.Text == "")
-            {
-                MessageBox.Show(@"Du har inte valt någon kontakt att ändra");
-            }
-            else
-            {
-                DeleteContact();
-                Contact obj = new Contact(TxtFirstName.Text, TxtLastName.Text, TxtAddress.Text, TxtZip.Text, TxtCity.Text,
-                TxtPhone.Text, TxtEmail.Text);
-                data.WriteData(obj);
-                GetDataToListBox();
-            }
-        }
         private void BtnClear_Click(object sender, EventArgs e)
         {
             ClearForm();
@@ -59,10 +44,12 @@ namespace AddressBook
            DeleteContact();
            GetDataToListBox();
         }
-        private void ListBox_MouseDoubleClick(object sender, MouseEventArgs e)
+
+        private void ListBox_MouseClick(object sender, MouseEventArgs e)
         {
             SplitListToTextBox();
         }
+      
         public void SearchContact()
         {
             var list = data.ReadData().ToArray();
@@ -113,10 +100,10 @@ namespace AddressBook
 
         public void DeleteContact()
         {
-            if (TxtEmail.Text != "")
+            if (TxtEmail.Text != "" || TxtPhone.Text != "")
             {
             var oldLines = File.ReadAllLines(data.PathToTextFile);
-            var newLines = oldLines.Where(line => !line.Contains(TxtEmail.Text));
+            var newLines = oldLines.Where(line => !line.Contains(TxtEmail.Text) && !line.Contains(TxtPhone.Text));
             File.WriteAllLines(data.PathToTextFile, newLines);
             }
             else
@@ -141,6 +128,5 @@ namespace AddressBook
             }
         }
 
-       
     }
 }
