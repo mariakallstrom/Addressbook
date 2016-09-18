@@ -8,30 +8,30 @@ namespace AddressBook
         
         public static string UpperCaseFirst(this string text)
         {
-            if (text.Length < 1)
+            if (text == "")
             {
-                MessageBox.Show(@"texten måste vara längre än 2 bokstäver");
+                return text;
             }
-            else
+            else if (text.Length > 0 && text.Length < 1)
             {
-                text = char.ToUpper(text[0]) + text.Substring(1);
+                MessageBox.Show(@"Texten måste vara längre än 2 bokstäver");
+                return text;
             }
-            return text;
-
-
-
+                return text = char.ToUpper(text[0]) + text.Substring(1);
         }
         public static string LowerString(this string text)
         {
-            if (text.Length < 1)
+            if (text == "")
+            {
+                return text;
+            }
+            else if (text.Length > 0 && text.Length < 1)
             {
                 MessageBox.Show(@"Texten måste vara längre än 2 bokstäver");
+                return text;
             }
-            else
-            {
-                return text.ToLower();
-            }
-            return text;
+
+            return text.ToLower();
         }
     }
 }

@@ -5,9 +5,10 @@ namespace AddressBook
 {
     public class DataHandler
     {
+        
         public string PathToTextFile
         {
-            get { return @"C:\Users\Maria\Documents\addressbook.txt"; }
+            get { return @"C:\Users\Maria\OneDrive\Dokument\Visual Studio 2015\Textdokument.txt"; }
         }
 
         public void WriteData(Contact obj)

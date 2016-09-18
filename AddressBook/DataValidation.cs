@@ -31,7 +31,6 @@ namespace AddressBook
 
         public bool ControlEmptyTextBoxes(Contact obj)
         {
-            
             string[] textBoxArray = { obj.FirstName, obj.LastName, obj.Phone, obj.Email };
             int count = 0;
 
@@ -46,21 +45,9 @@ namespace AddressBook
             {
                 return true;
             }
-            MessageBox.Show(@"Du måste fylla i alla fält");
+            MessageBox.Show(@"Du måste fylla i förnamn, efternamn, telefon och email");
             return false;
         }
-
-        //public bool ControlZipCode(Contact obj)
-        //{
-        //    int zip;
-        //    bool ok = int.TryParse(obj.Zip, out zip);
-        //    if (ok == false || obj.Zip.Length < 5 || obj.Zip.Length > 5)
-        //    {
-        //        MessageBox.Show(@"Felaktigt postnummer");
-        //        return false;
-        //    }
-        //    return true;
-        //}
 
         public bool ControlEmail(Contact obj)
         {
@@ -84,22 +71,6 @@ namespace AddressBook
                 MessageBox.Show(@"Felaktigt Telefonnummer");
                 return false;
             }
-            return true;
-        }
-
-        public bool FixText(Contact obj)
-        {
-            obj.FirstName.Trim().UpperCaseFirst();
-            obj.LastName.Trim().UpperCaseFirst();
-            if (obj.Address != "")
-            {
-                obj.Address.Trim().UpperCaseFirst();
-            }
-            if (obj.City != "")
-            {
-                obj.City.Trim().UpperCaseFirst();
-            }
-            obj.Email.LowerString();
             return true;
         }
     }

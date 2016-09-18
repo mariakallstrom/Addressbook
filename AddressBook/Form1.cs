@@ -17,10 +17,10 @@ namespace AddressBook
         private void BtnRegistrate_Click(object sender, EventArgs e)
         {
             DataValidation val = new DataValidation();
-            Contact obj = new Contact(TxtFirstName.Text, TxtLastName.Text, TxtAddress.Text, TxtZip.Text, TxtCity.Text,
-            TxtPhone.Text, TxtEmail.Text);
+            Contact obj = new Contact(TxtFirstName.Text.Trim().UpperCaseFirst(), TxtLastName.Text.Trim().UpperCaseFirst(), TxtAddress.Text.Trim().UpperCaseFirst(), TxtZip.Text.Trim(), TxtCity.Text.Trim().UpperCaseFirst(),
+            TxtPhone.Text.Trim(), TxtEmail.Text.Trim().LowerString());
            
-            if (val.ControlEmptyTextBoxes(obj) && val.FixText(obj) && val.ControlPhone(obj) && val.ControlContactExist(obj))
+            if (val.ControlEmptyTextBoxes(obj) && val.ControlPhone(obj) && val.ControlContactExist(obj) && val.ControlEmail(obj))
             {
                 data.WriteData(obj);
                 ClearForm();
@@ -37,11 +37,18 @@ namespace AddressBook
         }
         private void BtnChange_Click(object sender, EventArgs e)
         {
-            DeleteContact();
-            Contact obj = new Contact(TxtFirstName.Text, TxtLastName.Text, TxtAddress.Text, TxtZip.Text, TxtCity.Text,
+            if (TxtEmail.Text == "")
+            {
+                MessageBox.Show(@"Du har inte valt någon kontakt att ändra");
+            }
+            else
+            {
+                DeleteContact();
+                Contact obj = new Contact(TxtFirstName.Text, TxtLastName.Text, TxtAddress.Text, TxtZip.Text, TxtCity.Text,
                 TxtPhone.Text, TxtEmail.Text);
-            data.WriteData(obj);
-            GetDataToListBox();
+                data.WriteData(obj);
+                GetDataToListBox();
+            }
         }
         private void BtnClear_Click(object sender, EventArgs e)
         {
