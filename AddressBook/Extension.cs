@@ -12,10 +12,14 @@ namespace AddressBook
             {
                 MessageBox.Show(@"texten måste vara längre än 2 bokstäver");
             }
-         
-                return char.ToUpper(text[0]) + text.Substring(1);
-            
-      
+            else
+            {
+                text = char.ToUpper(text[0]) + text.Substring(1);
+            }
+            return text;
+
+
+
         }
         public static string LowerString(this string text)
         {
@@ -23,7 +27,11 @@ namespace AddressBook
             {
                 MessageBox.Show(@"Texten måste vara längre än 2 bokstäver");
             }
-            return text.ToLower();
+            else
+            {
+                return text.ToLower();
+            }
+            return text;
         }
     }
 }

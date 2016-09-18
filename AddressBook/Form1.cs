@@ -113,13 +113,13 @@ namespace AddressBook
 
                 while ((line = sr.ReadLine()) != null)
                 {
-                    if (line.Contains(ListBox.SelectedItems.ToString()))
+                    if (line != TxtEmail.Text)
                     {
-                        sw.WriteLine(String.Empty);
+                        sw.WriteLine(line);
                     }
                     else
                     {
-                        sw.WriteLine(line);
+                        sw.WriteLine(String.Empty);
                     } 
                 }
             }

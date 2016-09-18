@@ -16,7 +16,6 @@ namespace AddressBook
 
             foreach (var t in listArray)
             {
-
                 if (t.Contains(obj.Email))
                 {
                     count++;
