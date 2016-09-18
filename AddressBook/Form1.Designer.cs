@@ -1,11 +1,14 @@
-﻿namespace AddressBook
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace AddressBook
 {
     partial class Form1
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -182,18 +185,19 @@
             // 
             this.ListBox.FormattingEnabled = true;
             this.ListBox.ItemHeight = 20;
-            this.ListBox.Location = new System.Drawing.Point(471, 48);
+            this.ListBox.Location = new System.Drawing.Point(404, 48);
             this.ListBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ListBox.Name = "ListBox";
-            this.ListBox.Size = new System.Drawing.Size(354, 124);
+            this.ListBox.Size = new System.Drawing.Size(421, 124);
             this.ListBox.TabIndex = 14;
+            this.ListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBox_MouseDoubleClick);
             // 
             // BtnGetContact
             // 
-            this.BtnGetContact.Location = new System.Drawing.Point(471, 3);
+            this.BtnGetContact.Location = new System.Drawing.Point(404, 14);
             this.BtnGetContact.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnGetContact.Name = "BtnGetContact";
-            this.BtnGetContact.Size = new System.Drawing.Size(189, 35);
+            this.BtnGetContact.Size = new System.Drawing.Size(196, 35);
             this.BtnGetContact.TabIndex = 15;
             this.BtnGetContact.Text = "Hämta Kontakter";
             this.BtnGetContact.UseVisualStyleBackColor = true;
@@ -201,7 +205,7 @@
             // 
             // BtnRegistrate
             // 
-            this.BtnRegistrate.Location = new System.Drawing.Point(174, 448);
+            this.BtnRegistrate.Location = new System.Drawing.Point(135, 448);
             this.BtnRegistrate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnRegistrate.Name = "BtnRegistrate";
             this.BtnRegistrate.Size = new System.Drawing.Size(138, 35);
@@ -212,7 +216,7 @@
             // 
             // BtnChange
             // 
-            this.BtnChange.Location = new System.Drawing.Point(368, 448);
+            this.BtnChange.Location = new System.Drawing.Point(303, 448);
             this.BtnChange.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnChange.Name = "BtnChange";
             this.BtnChange.Size = new System.Drawing.Size(147, 35);
@@ -223,7 +227,7 @@
             // 
             // BtnSearch
             // 
-            this.BtnSearch.Location = new System.Drawing.Point(471, 251);
+            this.BtnSearch.Location = new System.Drawing.Point(444, 292);
             this.BtnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnSearch.Name = "BtnSearch";
             this.BtnSearch.Size = new System.Drawing.Size(250, 35);
@@ -234,7 +238,7 @@
             // 
             // TxtSearch
             // 
-            this.TxtSearch.Location = new System.Drawing.Point(471, 211);
+            this.TxtSearch.Location = new System.Drawing.Point(444, 256);
             this.TxtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtSearch.Name = "TxtSearch";
             this.TxtSearch.Size = new System.Drawing.Size(248, 26);
@@ -242,7 +246,7 @@
             // 
             // BtnClear
             // 
-            this.BtnClear.Location = new System.Drawing.Point(444, 351);
+            this.BtnClear.Location = new System.Drawing.Point(496, 437);
             this.BtnClear.Name = "BtnClear";
             this.BtnClear.Size = new System.Drawing.Size(134, 46);
             this.BtnClear.TabIndex = 22;
@@ -252,9 +256,9 @@
             // 
             // BtnDeleteContact
             // 
-            this.BtnDeleteContact.Location = new System.Drawing.Point(663, 426);
+            this.BtnDeleteContact.Location = new System.Drawing.Point(623, 173);
             this.BtnDeleteContact.Name = "BtnDeleteContact";
-            this.BtnDeleteContact.Size = new System.Drawing.Size(162, 45);
+            this.BtnDeleteContact.Size = new System.Drawing.Size(202, 30);
             this.BtnDeleteContact.TabIndex = 23;
             this.BtnDeleteContact.Text = "Ta bort kontakt";
             this.BtnDeleteContact.UseVisualStyleBackColor = true;
@@ -290,7 +294,6 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Mina Kontakter";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,28 +301,28 @@
 
         #endregion
 
-        public System.Windows.Forms.TextBox TxtFirstName;
-        private System.Windows.Forms.Label LblFirstName;
-        private System.Windows.Forms.Label LblLastName;
-        private System.Windows.Forms.Label LblAddress;
-        private System.Windows.Forms.Label LblZip;
-        private System.Windows.Forms.Label LblCity;
-        private System.Windows.Forms.Label LblPhone;
-        private System.Windows.Forms.Label LblEmail;
-        public System.Windows.Forms.ListBox ListBox;
-        private System.Windows.Forms.Button BtnGetContact;
-        private System.Windows.Forms.Button BtnRegistrate;
-        private System.Windows.Forms.Button BtnChange;
-        private System.Windows.Forms.Button BtnSearch;
-        private System.Windows.Forms.TextBox TxtSearch;
-        public System.Windows.Forms.TextBox TxtLastName;
-        public System.Windows.Forms.TextBox TxtAddress;
-        public System.Windows.Forms.TextBox TxtZip;
-        public System.Windows.Forms.TextBox TxtCity;
-        public System.Windows.Forms.TextBox TxtPhone;
-        public System.Windows.Forms.TextBox TxtEmail;
-        private System.Windows.Forms.Button BtnClear;
-        private System.Windows.Forms.Button BtnDeleteContact;
+        public TextBox TxtFirstName;
+        private Label LblFirstName;
+        private Label LblLastName;
+        private Label LblAddress;
+        private Label LblZip;
+        private Label LblCity;
+        private Label LblPhone;
+        private Label LblEmail;
+        public ListBox ListBox;
+        private Button BtnGetContact;
+        private Button BtnRegistrate;
+        private Button BtnChange;
+        private Button BtnSearch;
+        private TextBox TxtSearch;
+        public TextBox TxtLastName;
+        public TextBox TxtAddress;
+        public TextBox TxtZip;
+        public TextBox TxtCity;
+        public TextBox TxtPhone;
+        public TextBox TxtEmail;
+        private Button BtnClear;
+        private Button BtnDeleteContact;
     }
 }
 

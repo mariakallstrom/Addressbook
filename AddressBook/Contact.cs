@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AddressBook
+﻿namespace AddressBook
 {
     public class Contact
     {
@@ -19,25 +13,26 @@ namespace AddressBook
 
         public Contact() //Default
         {
-
-            FirstName = "Maria";
-            LastName = "Nilsson";
-            Address = "Lingonstigen 5";
-            City = "Stockholm";
-            Zip = "12345";
-            Phone = "0000000000";
-            Email = "Maria@maria.se";
+           
         }
 
         public Contact(string firstName, string lastName, string address, string zip, string city, string phone, string email)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            Address = address;
-            Zip = zip;
-            City = city;
-            Phone = phone;
-            Email = email;
+            FirstName = firstName.Trim().UpperCaseFirst();
+            LastName = lastName.Trim().UpperCaseFirst();
+            if (Address != null)
+            {
+                Address = address.UpperCaseFirst();
+            }
+            Address = address.Trim();
+            Zip = zip.Trim();
+            if (City != null)
+            {
+                City = city.UpperCaseFirst();
+            }
+            City = city.Trim();
+            Phone = phone.Trim();
+            Email = email.Trim().LowerString();
         }
 
     }

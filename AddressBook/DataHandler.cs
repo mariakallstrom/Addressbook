@@ -12,8 +12,7 @@ namespace AddressBook
 
         public void WriteData(Contact obj)
         {
-            DataHandler data = new DataHandler();
-            var path = data.PathToTextFile;
+            var path = PathToTextFile;
             DeleteEmptyLines();
             StreamWriter sw = new StreamWriter(path, true);
             sw.WriteLine(obj.FirstName + "," + obj.LastName + "," + obj.Address + "," + obj.Zip + "," + obj.City + "," + obj.Phone + "," + obj.Email);
@@ -21,9 +20,9 @@ namespace AddressBook
         }
         public List<string> ReadData()
         {
-            DataHandler data = new DataHandler();
+
             List<string> list = new List<string>();
-            var path = data.PathToTextFile;
+            var path = PathToTextFile;
             string row = "";
             StreamReader sr = new StreamReader(path, true);
             while ((row = sr.ReadLine()) != null)

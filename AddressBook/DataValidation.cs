@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace AddressBook
 {
     class DataValidation
     {
-        Contact obj = new Contact();
+     
         DataHandler data = new DataHandler();
 
-        public bool ControlContactExist()
+        public bool ControlContactExist(Contact obj)
         {
             List<string> list = data.ReadData();
             string[] listArray = list.ToArray();
@@ -30,53 +26,44 @@ namespace AddressBook
             {
                 return true;
             }
-            else
-            {
-                MessageBox.Show("Kontakten finns redan!");
-                return false;
-            }
+            MessageBox.Show(@"Kontakten finns redan!");
+            return false;
         }
 
-        public bool ControlEmptyTextBoxes()
+        public bool ControlEmptyTextBoxes(Contact obj)
         {
-            string[] textBoxArray = new string[] { obj.FirstName, obj.LastName, obj.Address, obj.Zip, obj.City, obj.Phone, obj.Email };
+            
+            string[] textBoxArray = { obj.FirstName, obj.LastName, obj.Phone, obj.Email };
             int count = 0;
-            bool ok = true;
 
-            for (int i = 0; i < textBoxArray.Length; i++)
+            foreach (string text in textBoxArray)
             {
-                if (textBoxArray[i] == "")
+                if (text == "")
                 {
                     count++;
                 }
             }
             if (count == 0)
             {
-                return ok;
+                return true;
             }
-            else
-            {
-                MessageBox.Show("Du måste fylla i alla fält");
-                return false;
-            }
+            MessageBox.Show(@"Du måste fylla i alla fält");
+            return false;
         }
 
-        public bool ControlZipCode()
-        {
-            int zip;
-            bool ok = int.TryParse(obj.Zip, out zip);
-            if (ok == false || obj.Zip.Length < 5 || obj.Zip.Length > 5)
-            {
-                MessageBox.Show("Felaktigt postnummer");
-                return false;
-            }
-            else
-            {
-                return ok;
-            }
-        }
+        //public bool ControlZipCode(Contact obj)
+        //{
+        //    int zip;
+        //    bool ok = int.TryParse(obj.Zip, out zip);
+        //    if (ok == false || obj.Zip.Length < 5 || obj.Zip.Length > 5)
+        //    {
+        //        MessageBox.Show(@"Felaktigt postnummer");
+        //        return false;
+        //    }
+        //    return true;
+        //}
 
-        public bool ControlEmail()
+        public bool ControlEmail(Contact obj)
         {
             var emailLength = obj.Email.Length;
 
@@ -85,28 +72,20 @@ namespace AddressBook
             {
                 return true;
             }
-            else
-            {
-                MessageBox.Show("Fel emailaddress!");
-                return false;
-            }
-
-
+            MessageBox.Show(@"Fel emailaddress!");
+            return false;
         }
 
-        public bool ControlPhone()
+        public bool ControlPhone(Contact obj)
         {
             int num;
             bool ok = int.TryParse(obj.Phone, out num);
             if (ok == false || obj.Phone.Length < 9 || obj.Phone.Length > 10)
             {
-                MessageBox.Show("Felaktigt Telefonnummer");
+                MessageBox.Show(@"Felaktigt Telefonnummer");
                 return false;
             }
-            else
-            {
-                return ok;
-            }
+            return true;
         }
     }
 }
