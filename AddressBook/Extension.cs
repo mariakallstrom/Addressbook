@@ -5,10 +5,10 @@ namespace AddressBook
 {
     public static class Extension
     {
-        static Contact obj = new Contact();
+        
         public static string UpperCaseFirst(this string text)
         {
-            if (text == String.Empty || text.Length == 1)
+            if (text.Length < 1)
             {
                 MessageBox.Show(@"texten måste vara längre än 2 bokstäver");
             }
@@ -23,7 +23,7 @@ namespace AddressBook
         }
         public static string LowerString(this string text)
         {
-            if (text == String.Empty || text.Length == 1)
+            if (text.Length < 1)
             {
                 MessageBox.Show(@"Texten måste vara längre än 2 bokstäver");
             }

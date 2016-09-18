@@ -86,5 +86,21 @@ namespace AddressBook
             }
             return true;
         }
+
+        public bool FixText(Contact obj)
+        {
+            obj.FirstName.Trim().UpperCaseFirst();
+            obj.LastName.Trim().UpperCaseFirst();
+            if (obj.Address != "")
+            {
+                obj.Address.Trim().UpperCaseFirst();
+            }
+            if (obj.City != "")
+            {
+                obj.City.Trim().UpperCaseFirst();
+            }
+            obj.Email.LowerString();
+            return true;
+        }
     }
 }

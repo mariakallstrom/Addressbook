@@ -18,9 +18,9 @@ namespace AddressBook
         {
             DataValidation val = new DataValidation();
             Contact obj = new Contact(TxtFirstName.Text, TxtLastName.Text, TxtAddress.Text, TxtZip.Text, TxtCity.Text,
-                TxtPhone.Text, TxtEmail.Text);
-
-            if (val.ControlEmptyTextBoxes(obj) && val.ControlEmail(obj) && val.ControlPhone(obj) && val.ControlContactExist(obj))
+            TxtPhone.Text, TxtEmail.Text);
+           
+            if (val.ControlEmptyTextBoxes(obj) && val.FixText(obj) && val.ControlPhone(obj) && val.ControlContactExist(obj))
             {
                 data.WriteData(obj);
                 ClearForm();
@@ -103,31 +103,20 @@ namespace AddressBook
                         TxtEmail.Text = textArray[6];
             }
         }
+
         public void DeleteContact()
         {
-            string tempFile = Path.GetTempFileName();
-            using (var sr = new StreamReader(data.PathToTextFile))
-            using (var sw = new StreamWriter(tempFile))
+            if (TxtEmail.Text != "")
             {
-                string line;
-
-                while ((line = sr.ReadLine()) != null)
-                {
-                    if (line != TxtEmail.Text)
-                    {
-                        sw.WriteLine(line);
-                    }
-                    else
-                    {
-                        sw.WriteLine(String.Empty);
-                    } 
-                }
+            var oldLines = File.ReadAllLines(data.PathToTextFile);
+            var newLines = oldLines.Where(line => !line.Contains(TxtEmail.Text));
+            File.WriteAllLines(data.PathToTextFile, newLines);
             }
-
-            File.Delete(data.PathToTextFile);
-            File.Move(tempFile, data.PathToTextFile);
-            data.DeleteEmptyLines();
-
+            else
+            {
+                MessageBox.Show(@"Du måste välja en kontakt att ta bort");
+            }
+          
         }
         public void GetDataToListBox()
         {
@@ -142,7 +131,6 @@ namespace AddressBook
                     item.Text = "";
                 }
                 ListBox.DataSource = null;
-                data.DeleteEmptyLines();
             }
         }
 
