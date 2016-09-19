@@ -215,7 +215,7 @@ namespace AddressBook
             // 
             // BtnSearch
             // 
-            this.BtnSearch.Location = new System.Drawing.Point(738, 252);
+            this.BtnSearch.Location = new System.Drawing.Point(744, 247);
             this.BtnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnSearch.Name = "BtnSearch";
             this.BtnSearch.Size = new System.Drawing.Size(88, 37);

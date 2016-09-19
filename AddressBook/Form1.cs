@@ -24,6 +24,7 @@ namespace AddressBook
                 TxtLastName.Text.Trim().UpperCaseFirst(), TxtAddress.Text.Trim().UpperCaseFirst(), TxtZip.Text.Trim(),
                 TxtCity.Text.Trim().UpperCaseFirst(),
                 TxtPhone.Text.Trim(), TxtEmail.Text.Trim().LowerString());
+
             if (val.ControlEmptyTextBoxes(obj) && val.ControlPhone(obj) && val.ControlContactExist(obj) &&
                 val.ControlEmail(obj))
             {
@@ -43,8 +44,8 @@ namespace AddressBook
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            List<string> list = new List<string> { TxtSearch.Text};
-            SearchContact(list);
+           
+            SearchContact();
         }
 
         private void BtnClear_Click(object sender, EventArgs e)
@@ -65,44 +66,78 @@ namespace AddressBook
 
         private void ListBox_MouseClick(object sender, MouseEventArgs e)
         {
-            List<string> list = new List<string>() {ListBox.SelectedItem.ToString()};
-            SearchContact(list);
+           
+            var text = ListBox.SelectedItem.ToString();
+            var list = text.Split(',').ToArray();
+                TxtFirstName.Text = list[0];
+                TxtLastName.Text = list[1];
+                TxtAddress.Text = list[2];
+                TxtZip.Text = list[3];
+                TxtCity.Text = list[4];
+                TxtPhone.Text = list[5];
+                TxtEmail.Text = list[6];
         }
 
-        public void SearchContact(List<string> list1 )
+        public void SearchContact()
         {
-            var list = list1.ToArray();
-            
-
+           
+            var list = data.ReadData().ToArray();
             var count = 0;
+            bool ok = true;
+
             foreach (var text in list)
             {
-                list = text.Split(',');
-
-                foreach (var word in list)
-                {
-                    if (TxtSearch.Text.Contains(word) || ListBox.SelectedItem.ToString().Contains(word))
-                    {
-                        TxtFirstName.Text = list[0];
-                        TxtLastName.Text = list[1];
-                        TxtAddress.Text = list[2];
-                        TxtZip.Text = list[3];
-                        TxtCity.Text = list[4];
-                        TxtPhone.Text = list[5];
-                        TxtEmail.Text = list[6];
-                    }
-
-                }
-                if (!list.Contains(TxtSearch.Text) || !list.Contains(ListBox.SelectedItem.ToString()))
+                if (!text.Contains(TxtSearch.Text) || text != TxtSearch.SelectedText)
                 {
                     count++;
                 }
+
+                 if (count == 0)
+                {
+                    MessageBox.Show(@"Kontakten finns inte");
+                }
             }
-            if (count == 0)
+            if (count != 0)
             {
-                MessageBox.Show(@"Kontakten finns inte!");
+                foreach (var text in list)
+                {
+                    if (text == TxtSearch.SelectedText)
+                        
+                    {
+                            list = text.Split(',');
+                            TxtFirstName.Text = list[0];
+                            TxtLastName.Text = list[1];
+                            TxtAddress.Text = list[2];
+                            TxtZip.Text = list[3];
+                            TxtCity.Text = list[4];
+                            TxtPhone.Text = list[5];
+                            TxtEmail.Text = list[6];
+                            ok = false;
+                    }
+                }
+                if (ok)
+                {
+                    foreach (var text in list)
+                    {
+                        list = text.Split(',');
+
+                        if (list.Contains(TxtSearch.Text))
+                        {
+                            TxtFirstName.Text = list[0];
+                            TxtLastName.Text = list[1];
+                            TxtAddress.Text = list[2];
+                            TxtZip.Text = list[3];
+                            TxtCity.Text = list[4];
+                            TxtPhone.Text = list[5];
+                            TxtEmail.Text = list[6];
+                        }
+
+                    }
+                }
             }
+
         }
+     
 
 
 
