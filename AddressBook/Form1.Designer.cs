@@ -56,130 +56,147 @@ namespace AddressBook
             // 
             // TxtFirstName
             // 
-            this.TxtFirstName.Location = new System.Drawing.Point(90, 31);
+            this.TxtFirstName.Location = new System.Drawing.Point(148, 49);
+            this.TxtFirstName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtFirstName.Name = "TxtFirstName";
-            this.TxtFirstName.Size = new System.Drawing.Size(157, 20);
+            this.TxtFirstName.Size = new System.Drawing.Size(234, 26);
             this.TxtFirstName.TabIndex = 0;
             // 
             // TxtLastName
             // 
-            this.TxtLastName.Location = new System.Drawing.Point(90, 68);
+            this.TxtLastName.Location = new System.Drawing.Point(148, 106);
+            this.TxtLastName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtLastName.Name = "TxtLastName";
-            this.TxtLastName.Size = new System.Drawing.Size(157, 20);
+            this.TxtLastName.Size = new System.Drawing.Size(234, 26);
             this.TxtLastName.TabIndex = 1;
             // 
             // TxtAddress
             // 
-            this.TxtAddress.Location = new System.Drawing.Point(90, 104);
+            this.TxtAddress.Location = new System.Drawing.Point(148, 161);
+            this.TxtAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtAddress.Name = "TxtAddress";
-            this.TxtAddress.Size = new System.Drawing.Size(157, 20);
+            this.TxtAddress.Size = new System.Drawing.Size(234, 26);
             this.TxtAddress.TabIndex = 2;
             // 
             // TxtZip
             // 
-            this.TxtZip.Location = new System.Drawing.Point(90, 141);
+            this.TxtZip.Location = new System.Drawing.Point(148, 218);
+            this.TxtZip.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtZip.Name = "TxtZip";
-            this.TxtZip.Size = new System.Drawing.Size(157, 20);
+            this.TxtZip.Size = new System.Drawing.Size(234, 26);
             this.TxtZip.TabIndex = 3;
             // 
             // TxtCity
             // 
-            this.TxtCity.Location = new System.Drawing.Point(90, 179);
+            this.TxtCity.Location = new System.Drawing.Point(148, 276);
+            this.TxtCity.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtCity.Name = "TxtCity";
-            this.TxtCity.Size = new System.Drawing.Size(157, 20);
+            this.TxtCity.Size = new System.Drawing.Size(234, 26);
             this.TxtCity.TabIndex = 4;
             // 
             // TxtPhone
             // 
-            this.TxtPhone.Location = new System.Drawing.Point(90, 217);
+            this.TxtPhone.Location = new System.Drawing.Point(148, 335);
+            this.TxtPhone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtPhone.Name = "TxtPhone";
-            this.TxtPhone.Size = new System.Drawing.Size(157, 20);
+            this.TxtPhone.Size = new System.Drawing.Size(234, 26);
             this.TxtPhone.TabIndex = 5;
             // 
             // TxtEmail
             // 
-            this.TxtEmail.Location = new System.Drawing.Point(90, 255);
+            this.TxtEmail.Location = new System.Drawing.Point(148, 393);
+            this.TxtEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtEmail.Name = "TxtEmail";
-            this.TxtEmail.Size = new System.Drawing.Size(157, 20);
+            this.TxtEmail.Size = new System.Drawing.Size(234, 26);
             this.TxtEmail.TabIndex = 6;
             // 
             // LblFirstName
             // 
             this.LblFirstName.AutoSize = true;
-            this.LblFirstName.Location = new System.Drawing.Point(13, 34);
+            this.LblFirstName.Location = new System.Drawing.Point(20, 52);
+            this.LblFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblFirstName.Name = "LblFirstName";
-            this.LblFirstName.Size = new System.Drawing.Size(48, 13);
+            this.LblFirstName.Size = new System.Drawing.Size(73, 20);
             this.LblFirstName.TabIndex = 7;
             this.LblFirstName.Text = "Förnamn";
             // 
             // LblLastName
             // 
             this.LblLastName.AutoSize = true;
-            this.LblLastName.Location = new System.Drawing.Point(12, 71);
+            this.LblLastName.Location = new System.Drawing.Point(18, 109);
+            this.LblLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblLastName.Name = "LblLastName";
-            this.LblLastName.Size = new System.Drawing.Size(55, 13);
+            this.LblLastName.Size = new System.Drawing.Size(84, 20);
             this.LblLastName.TabIndex = 8;
             this.LblLastName.Text = "Efternamn";
             // 
             // LblAddress
             // 
             this.LblAddress.AutoSize = true;
-            this.LblAddress.Location = new System.Drawing.Point(13, 107);
+            this.LblAddress.Location = new System.Drawing.Point(20, 165);
+            this.LblAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblAddress.Name = "LblAddress";
-            this.LblAddress.Size = new System.Drawing.Size(61, 13);
+            this.LblAddress.Size = new System.Drawing.Size(93, 20);
             this.LblAddress.TabIndex = 9;
             this.LblAddress.Text = "Gatuadress";
             // 
             // LblZip
             // 
             this.LblZip.AutoSize = true;
-            this.LblZip.Location = new System.Drawing.Point(12, 144);
+            this.LblZip.Location = new System.Drawing.Point(18, 222);
+            this.LblZip.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblZip.Name = "LblZip";
-            this.LblZip.Size = new System.Drawing.Size(65, 13);
+            this.LblZip.Size = new System.Drawing.Size(99, 20);
             this.LblZip.TabIndex = 10;
             this.LblZip.Text = "Postnummer";
             // 
             // LblCity
             // 
             this.LblCity.AutoSize = true;
-            this.LblCity.Location = new System.Drawing.Point(12, 182);
+            this.LblCity.Location = new System.Drawing.Point(18, 280);
+            this.LblCity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblCity.Name = "LblCity";
-            this.LblCity.Size = new System.Drawing.Size(40, 13);
+            this.LblCity.Size = new System.Drawing.Size(60, 20);
             this.LblCity.TabIndex = 11;
             this.LblCity.Text = "Postort";
             // 
             // LblPhone
             // 
             this.LblPhone.AutoSize = true;
-            this.LblPhone.Location = new System.Drawing.Point(12, 220);
+            this.LblPhone.Location = new System.Drawing.Point(18, 338);
+            this.LblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblPhone.Name = "LblPhone";
-            this.LblPhone.Size = new System.Drawing.Size(43, 13);
+            this.LblPhone.Size = new System.Drawing.Size(120, 20);
             this.LblPhone.TabIndex = 12;
-            this.LblPhone.Text = "Telefon";
+            this.LblPhone.Text = "Telefonnummer";
             // 
             // LblEmail
             // 
             this.LblEmail.AutoSize = true;
-            this.LblEmail.Location = new System.Drawing.Point(13, 258);
+            this.LblEmail.Location = new System.Drawing.Point(20, 397);
+            this.LblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblEmail.Name = "LblEmail";
-            this.LblEmail.Size = new System.Drawing.Size(35, 13);
+            this.LblEmail.Size = new System.Drawing.Size(53, 20);
             this.LblEmail.TabIndex = 13;
             this.LblEmail.Text = "E-mail";
             // 
             // ListBox
             // 
             this.ListBox.FormattingEnabled = true;
-            this.ListBox.Location = new System.Drawing.Point(269, 31);
+            this.ListBox.ItemHeight = 20;
+            this.ListBox.Location = new System.Drawing.Point(404, 48);
+            this.ListBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ListBox.Name = "ListBox";
-            this.ListBox.Size = new System.Drawing.Size(282, 82);
+            this.ListBox.Size = new System.Drawing.Size(421, 124);
             this.ListBox.TabIndex = 14;
             this.ListBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListBox_MouseClick);
             // 
             // BtnGetContact
             // 
-            this.BtnGetContact.Location = new System.Drawing.Point(269, 119);
+            this.BtnGetContact.Location = new System.Drawing.Point(404, 183);
+            this.BtnGetContact.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnGetContact.Name = "BtnGetContact";
-            this.BtnGetContact.Size = new System.Drawing.Size(131, 27);
+            this.BtnGetContact.Size = new System.Drawing.Size(196, 42);
             this.BtnGetContact.TabIndex = 15;
             this.BtnGetContact.Text = "Hämta Kontakter";
             this.BtnGetContact.UseVisualStyleBackColor = true;
@@ -187,9 +204,10 @@ namespace AddressBook
             // 
             // BtnSave
             // 
-            this.BtnSave.Location = new System.Drawing.Point(90, 291);
+            this.BtnSave.Location = new System.Drawing.Point(135, 448);
+            this.BtnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(157, 23);
+            this.BtnSave.Size = new System.Drawing.Size(236, 35);
             this.BtnSave.TabIndex = 16;
             this.BtnSave.Text = "Spara";
             this.BtnSave.UseVisualStyleBackColor = true;
@@ -197,9 +215,10 @@ namespace AddressBook
             // 
             // BtnSearch
             // 
-            this.BtnSearch.Location = new System.Drawing.Point(269, 190);
+            this.BtnSearch.Location = new System.Drawing.Point(738, 252);
+            this.BtnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnSearch.Name = "BtnSearch";
-            this.BtnSearch.Size = new System.Drawing.Size(194, 20);
+            this.BtnSearch.Size = new System.Drawing.Size(88, 37);
             this.BtnSearch.TabIndex = 18;
             this.BtnSearch.Text = "Sök ";
             this.BtnSearch.UseVisualStyleBackColor = true;
@@ -207,17 +226,19 @@ namespace AddressBook
             // 
             // TxtSearch
             // 
-            this.TxtSearch.Location = new System.Drawing.Point(269, 164);
+            this.TxtSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.TxtSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.TxtSearch.Location = new System.Drawing.Point(404, 252);
+            this.TxtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtSearch.Name = "TxtSearch";
-            this.TxtSearch.Size = new System.Drawing.Size(194, 20);
+            this.TxtSearch.Size = new System.Drawing.Size(332, 26);
             this.TxtSearch.TabIndex = 19;
             // 
             // BtnClear
             // 
-            this.BtnClear.Location = new System.Drawing.Point(269, 291);
-            this.BtnClear.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnClear.Location = new System.Drawing.Point(404, 448);
             this.BtnClear.Name = "BtnClear";
-            this.BtnClear.Size = new System.Drawing.Size(89, 23);
+            this.BtnClear.Size = new System.Drawing.Size(134, 35);
             this.BtnClear.TabIndex = 22;
             this.BtnClear.Text = "Rensa";
             this.BtnClear.UseVisualStyleBackColor = true;
@@ -225,10 +246,9 @@ namespace AddressBook
             // 
             // BtnDeleteContact
             // 
-            this.BtnDeleteContact.Location = new System.Drawing.Point(416, 118);
-            this.BtnDeleteContact.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnDeleteContact.Location = new System.Drawing.Point(624, 182);
             this.BtnDeleteContact.Name = "BtnDeleteContact";
-            this.BtnDeleteContact.Size = new System.Drawing.Size(135, 28);
+            this.BtnDeleteContact.Size = new System.Drawing.Size(202, 43);
             this.BtnDeleteContact.TabIndex = 23;
             this.BtnDeleteContact.Text = "Ta bort kontakt";
             this.BtnDeleteContact.UseVisualStyleBackColor = true;
@@ -236,9 +256,9 @@ namespace AddressBook
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 357);
+            this.ClientSize = new System.Drawing.Size(944, 549);
             this.Controls.Add(this.BtnDeleteContact);
             this.Controls.Add(this.BtnClear);
             this.Controls.Add(this.TxtSearch);
@@ -260,6 +280,7 @@ namespace AddressBook
             this.Controls.Add(this.TxtAddress);
             this.Controls.Add(this.TxtLastName);
             this.Controls.Add(this.TxtFirstName);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Mina Kontakter";
             this.ResumeLayout(false);

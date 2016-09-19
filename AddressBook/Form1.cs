@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace AddressBook
@@ -13,88 +14,106 @@ namespace AddressBook
         public Form1()
         {
             InitializeComponent();
+            WriteToCollection();
         }
+
         private void BtnRegistrate_Click(object sender, EventArgs e)
         {
             DataValidation val = new DataValidation();
-            Contact obj = new Contact(TxtFirstName.Text.Trim().UpperCaseFirst(), TxtLastName.Text.Trim().UpperCaseFirst(), TxtAddress.Text.Trim().UpperCaseFirst(), TxtZip.Text.Trim(), TxtCity.Text.Trim().UpperCaseFirst(),
-            TxtPhone.Text.Trim(), TxtEmail.Text.Trim().LowerString());
-            if (val.ControlEmptyTextBoxes(obj) && val.ControlPhone(obj) && val.ControlContactExist(obj) && val.ControlEmail(obj))
+            Contact obj = new Contact(TxtFirstName.Text.Trim().UpperCaseFirst(),
+                TxtLastName.Text.Trim().UpperCaseFirst(), TxtAddress.Text.Trim().UpperCaseFirst(), TxtZip.Text.Trim(),
+                TxtCity.Text.Trim().UpperCaseFirst(),
+                TxtPhone.Text.Trim(), TxtEmail.Text.Trim().LowerString());
+            if (val.ControlEmptyTextBoxes(obj) && val.ControlPhone(obj) && val.ControlContactExist(obj) &&
+                val.ControlEmail(obj))
             {
                 DeleteContact();
                 data.WriteData(obj);
                 ClearForm();
                 GetDataToListBox();
+                WriteToCollection();
             }
         }
+
         private void BtnGetContact_Click(object sender, EventArgs e)
         {
-           GetDataToListBox();
+            GetDataToListBox();
+            
         }
+
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            SearchContact();
+            List<string> list = new List<string> { TxtSearch.Text};
+            SearchContact(list);
         }
+
         private void BtnClear_Click(object sender, EventArgs e)
         {
             ClearForm();
         }
+
         private void BtnDeleteContact_Click(object sender, EventArgs e)
         {
-           DeleteContact();
-           GetDataToListBox();
+            DialogResult dr = MessageBox.Show(@"Vill du ta bort kontakten?", "", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+            {
+                DeleteContact();
+                GetDataToListBox();
+            }
+           
         }
 
         private void ListBox_MouseClick(object sender, MouseEventArgs e)
         {
-            SplitListToTextBox();
+            List<string> list = new List<string>() {ListBox.SelectedItem.ToString()};
+            SearchContact(list);
         }
-      
-        public void SearchContact()
-        {
-            var list = data.ReadData().ToArray();
-            if (TxtSearch.Text == String.Empty)
-            {
-                MessageBox.Show(@"Kontakten finns inte!");
-            }
-            else
-            {
-                foreach (var row in list)
-            {
-               
-                    list = row.Split(',');
 
-                    foreach (var word in list)
+        public void SearchContact(List<string> list1 )
+        {
+            var list = list1.ToArray();
+            
+
+            var count = 0;
+            foreach (var text in list)
+            {
+                list = text.Split(',');
+
+                foreach (var word in list)
+                {
+                    if (TxtSearch.Text.Contains(word) || ListBox.SelectedItem.ToString().Contains(word))
                     {
-                        if (word == TxtSearch.Text)
-                        {
-                            TxtFirstName.Text = list[0];
-                            TxtLastName.Text = list[1];
-                            TxtAddress.Text = list[2];
-                            TxtZip.Text = list[3];
-                            TxtCity.Text = list[4];
-                            TxtPhone.Text = list[5];
-                            TxtEmail.Text = list[6];
-                        }
+                        TxtFirstName.Text = list[0];
+                        TxtLastName.Text = list[1];
+                        TxtAddress.Text = list[2];
+                        TxtZip.Text = list[3];
+                        TxtCity.Text = list[4];
+                        TxtPhone.Text = list[5];
+                        TxtEmail.Text = list[6];
                     }
 
                 }
+                if (!list.Contains(TxtSearch.Text) || !list.Contains(ListBox.SelectedItem.ToString()))
+                {
+                    count++;
+                }
+            }
+            if (count == 0)
+            {
+                MessageBox.Show(@"Kontakten finns inte!");
             }
         }
-        public void SplitListToTextBox()
-        {
-            string list = ListBox.SelectedItem.ToString();
-            string[] textArray = list.Split(',');
 
-            foreach (var row in list)
+
+
+        public void WriteToCollection()
+        {
+            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+            col.Clear();
+            string[] list = data.ReadData().ToArray();
+            foreach (var line in list)
             {
-                        TxtFirstName.Text = textArray[0];
-                        TxtLastName.Text = textArray[1];
-                        TxtAddress.Text = textArray[2];
-                        TxtZip.Text = textArray[3];
-                        TxtCity.Text = textArray[4];
-                        TxtPhone.Text = textArray[5];
-                        TxtEmail.Text = textArray[6];
+                TxtSearch.AutoCompleteCustomSource.AddRange(list);
             }
         }
 
@@ -102,31 +121,31 @@ namespace AddressBook
         {
             if (TxtEmail.Text != "" || TxtPhone.Text != "")
             {
-            var oldLines = File.ReadAllLines(data.PathToTextFile);
-            var newLines = oldLines.Where(line => !line.Contains(TxtEmail.Text) && !line.Contains(TxtPhone.Text));
-            File.WriteAllLines(data.PathToTextFile, newLines);
+                var oldLines = File.ReadAllLines(data.PathToTextFile);
+                var newLines = oldLines.Where(line => !line.Contains(TxtEmail.Text) && !line.Contains(TxtPhone.Text));
+                File.WriteAllLines(data.PathToTextFile, newLines);
             }
             else
             {
                 MessageBox.Show(@"Du måste välja en kontakt att ta bort");
             }
-          
         }
+
         public void GetDataToListBox()
         {
             ListBox.DataSource = data.ReadData();
         }
+
         public void ClearForm()
         {
             foreach (Control item in Controls)
             {
-                if (item is TextBox )
+                if (item is TextBox)
                 {
                     item.Text = "";
                 }
                 ListBox.DataSource = null;
             }
         }
-
     }
 }
