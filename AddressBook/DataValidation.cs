@@ -5,10 +5,7 @@ namespace AddressBook
 {
     class DataValidation
     {
-     
         DataHandler data = new DataHandler();
-
-
 
         public bool ControlContactExist(Contact obj)
         {
@@ -52,7 +49,7 @@ namespace AddressBook
             {
                 return true;
             }
-            MessageBox.Show(@"Du måste fylla i:\n" + "\nförnamn" + "\nefternamn" + "\ntelefon" + "\nemail");
+            MessageBox.Show(@"Du måste fylla i:" + "\nFörnamn" + "\nEfternamn" + "\nTelefon" + "\nEmail");
             return false;
         }
 

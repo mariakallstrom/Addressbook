@@ -302,7 +302,7 @@ namespace AddressBook
         private Button BtnGetContact;
         private Button BtnSave;
         private Button BtnSearch;
-        private TextBox TxtSearch;
+        public TextBox TxtSearch;
         public TextBox TxtLastName;
         public TextBox TxtAddress;
         public TextBox TxtZip;
