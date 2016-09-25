@@ -187,7 +187,7 @@ namespace AddressBook
             this.ListBox.Location = new System.Drawing.Point(404, 48);
             this.ListBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ListBox.Name = "ListBox";
-            this.ListBox.Size = new System.Drawing.Size(421, 124);
+            this.ListBox.Size = new System.Drawing.Size(513, 124);
             this.ListBox.TabIndex = 14;
             this.ListBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListBox_MouseClick);
             // 
@@ -215,7 +215,7 @@ namespace AddressBook
             // 
             // BtnSearch
             // 
-            this.BtnSearch.Location = new System.Drawing.Point(744, 247);
+            this.BtnSearch.Location = new System.Drawing.Point(829, 247);
             this.BtnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnSearch.Name = "BtnSearch";
             this.BtnSearch.Size = new System.Drawing.Size(88, 37);
@@ -231,7 +231,7 @@ namespace AddressBook
             this.TxtSearch.Location = new System.Drawing.Point(404, 252);
             this.TxtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtSearch.Name = "TxtSearch";
-            this.TxtSearch.Size = new System.Drawing.Size(332, 26);
+            this.TxtSearch.Size = new System.Drawing.Size(417, 26);
             this.TxtSearch.TabIndex = 19;
             // 
             // BtnClear
@@ -246,7 +246,7 @@ namespace AddressBook
             // 
             // BtnDeleteContact
             // 
-            this.BtnDeleteContact.Location = new System.Drawing.Point(624, 182);
+            this.BtnDeleteContact.Location = new System.Drawing.Point(715, 183);
             this.BtnDeleteContact.Name = "BtnDeleteContact";
             this.BtnDeleteContact.Size = new System.Drawing.Size(202, 43);
             this.BtnDeleteContact.TabIndex = 23;

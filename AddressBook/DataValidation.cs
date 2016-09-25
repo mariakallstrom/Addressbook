@@ -24,12 +24,11 @@ namespace AddressBook
             {
                 return true;
             }
-            DialogResult dr = MessageBox.Show("Kontakten finns redan, vill du ändra kontaktuppgifterna?","", MessageBoxButtons.YesNo);
+            DialogResult dr = MessageBox.Show(@"Kontakten finns redan, vill du ändra kontaktuppgifterna?","", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
                 return true;
             }
-            else
             return false;
         }
 

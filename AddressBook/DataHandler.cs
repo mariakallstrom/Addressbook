@@ -79,7 +79,7 @@ namespace AddressBook
                     Form1._Form1.TxtEmail.Text = split[6];
                 }
             }
-            else if (find.Count == list.Count)
+            else if (find.Count == list.Count || find.Count == 0)
             {
                 MessageBox.Show(@"kontakten finns inte!");
             }
