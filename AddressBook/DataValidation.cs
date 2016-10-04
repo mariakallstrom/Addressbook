@@ -35,21 +35,32 @@ namespace AddressBook
         public bool ControlEmptyTextBoxes(Contact obj)
         {
             string[] textBoxArray = { obj.FirstName, obj.LastName, obj.Phone, obj.Email };
-            int count = 0;
 
-            foreach (string text in textBoxArray)
-            {
-                if (text == "")
+            if (string.IsNullOrWhiteSpace(obj.FirstName) || string.IsNullOrEmpty(obj.LastName) || string.IsNullOrEmpty(obj.Phone) || string.IsNullOrEmpty(obj.Email))
+            { 
+                var message = "Du måste fylla i: ";
+
+                if (string.IsNullOrWhiteSpace(obj.FirstName))
                 {
-                    count++;
+                    message += "\nFörnamn";
                 }
+                if (string.IsNullOrEmpty(obj.LastName))
+                {
+                    message += "\nEfternamn";
+                }
+                if (string.IsNullOrEmpty(obj.Phone))
+                {
+                    message += "\nTelefonnummer";
+                }
+                if (string.IsNullOrEmpty(obj.Email))
+                {
+                    message += "\nEmail";
+                }
+
+                MessageBox.Show(message);
+                return false;
             }
-            if (count == 0)
-            {
-                return true;
-            }
-            MessageBox.Show(@"Du måste fylla i:" + "\nFörnamn" + "\nEfternamn" + "\nTelefon" + "\nEmail");
-            return false;
+            return true;
         }
 
         public bool ControlEmail(Contact obj)

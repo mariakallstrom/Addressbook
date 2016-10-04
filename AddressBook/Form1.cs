@@ -2,8 +2,6 @@
 using System.Linq;
 using System.Windows.Forms;
 
-
-
 namespace AddressBook
 {
     public partial class Form1 : Form
@@ -46,7 +44,6 @@ namespace AddressBook
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-           
             data.SearchContact();
         }
 
@@ -58,18 +55,16 @@ namespace AddressBook
         private void BtnDeleteContact_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show(@"Vill du ta bort kontakten?", "", MessageBoxButtons.YesNo);
+
             if (dr == DialogResult.Yes)
             {
                 data.DeleteContact();
                 data.GetDataToListBox();
-              
             }
-           
         }
 
         private void ListBox_MouseClick(object sender, MouseEventArgs e)
         {
-           
             var text = ListBox.SelectedItem.ToString();
             var list = text.Split(',').ToArray();
                 TxtFirstName.Text = list[0];
@@ -80,7 +75,5 @@ namespace AddressBook
                 TxtPhone.Text = list[5];
                 TxtEmail.Text = list[6];
         }
-
-
     }
 }

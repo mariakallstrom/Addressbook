@@ -1,14 +1,12 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace AddressBook
 {
     public static class Extension
     {
-        
         public static string UpperCaseFirst(this string text)
         {
-            if (text == "")
+            if (string.IsNullOrWhiteSpace(text))
             {
                 return text;
             }
@@ -19,9 +17,10 @@ namespace AddressBook
             }
                 return text = char.ToUpper(text[0]) + text.Substring(1);
         }
+
         public static string LowerString(this string text)
         {
-            if (text == "")
+            if (string.IsNullOrWhiteSpace(text))
             {
                 return text;
             }

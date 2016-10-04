@@ -198,7 +198,7 @@ namespace AddressBook
             this.BtnGetContact.Name = "BtnGetContact";
             this.BtnGetContact.Size = new System.Drawing.Size(196, 42);
             this.BtnGetContact.TabIndex = 15;
-            this.BtnGetContact.Text = "Hämta Kontakter";
+            this.BtnGetContact.Text = "Hämta alla kontakter";
             this.BtnGetContact.UseVisualStyleBackColor = true;
             this.BtnGetContact.Click += new System.EventHandler(this.BtnGetContact_Click);
             // 
@@ -282,6 +282,7 @@ namespace AddressBook
             this.Controls.Add(this.TxtFirstName);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.Text = "Mina Kontakter";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -77,6 +77,7 @@ namespace AddressBook
                     Form1._Form1.TxtCity.Text = split[4];
                     Form1._Form1.TxtPhone.Text = split[5];
                     Form1._Form1.TxtEmail.Text = split[6];
+                    Form1._Form1.ListBox.DataSource = find;
                 }
             }
             else if (find.Count == list.Count || find.Count == 0)
@@ -93,11 +94,13 @@ namespace AddressBook
 
         public void DeleteContact()
         {
-            if (Form1._Form1.TxtEmail.Text != "" || Form1._Form1.TxtPhone.Text != "")
+            if (!string.IsNullOrWhiteSpace(Form1._Form1.TxtEmail.Text) || !string.IsNullOrWhiteSpace(Form1._Form1.TxtPhone.Text))
             {
                 var oldLines = File.ReadAllLines(PathToTextFile);
                 var newLines = oldLines.Where(line => !line.Contains(Form1._Form1.TxtEmail.Text) && !line.Contains(Form1._Form1.TxtPhone.Text));
                 File.WriteAllLines(PathToTextFile, newLines);
+                WriteToCollection();
+             
             }
             else
             {
@@ -108,7 +111,7 @@ namespace AddressBook
         public void WriteToCollection()
         {
             AutoCompleteStringCollection col = new AutoCompleteStringCollection();
-            col.Clear();
+            Form1._Form1.TxtSearch.AutoCompleteCustomSource.Clear();
             string[] list = ReadData().ToArray();
             foreach (var line in list)
             {
@@ -130,6 +133,7 @@ namespace AddressBook
                     item.Text = "";
                 }
                 Form1._Form1.ListBox.DataSource = null;
+               
             }
         }
     }
